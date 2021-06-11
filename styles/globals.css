@@ -6,6 +6,13 @@
   .nav-container {
     @apply flex px-10 sm:px-20 text-2xl whitespace-nowrap space-x-10 overflow-x-scroll sm:space-x-20 scrollbar-hide
   }
+  .thumbnail-result {
+    @apply truncate max-w-md
+  }
+  .thumbnail-result:hover {
+    @apply overflow-visible whitespace-normal
+  }
+
 }
 
 @layer base {
