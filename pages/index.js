@@ -15,13 +15,20 @@ export default function Home({ results }) {
         <link rel="icon" href="/favicon.ico" />
         <script
           async
-          src="https://www.googletagmanager.com/gtag/js?id=UA-215791117-1"
-        ></script>
-        <script>
-          window.dataLayer = window.dataLayer || []; function gtag()
-          {dataLayer.push(arguments)}
-          gtag('js', new Date()); gtag('config', 'UA-215791117-1');
-        </script>
+          src={`https://www.googletagmanager.com/gtag/js?id=UA-215791117-1`}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-215791117-1', {
+              page_path: window.location.pathname,
+            });
+          `,
+          }}
+        />
       </Head>
       <Header />
       <Nav />
