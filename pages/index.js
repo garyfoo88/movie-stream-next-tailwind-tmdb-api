@@ -1,12 +1,17 @@
 import { data } from "autoprefixer";
 import axios from "axios";
 import Head from "next/head";
+import ReCAPTCHA from "react-google-recaptcha";
 import Header from "../components/Header";
 import Nav from "../components/Nav";
 import Results from "../components/Results";
 import requests from "../utils/requests";
 
 export default function Home({ results }) {
+  const onCaptchaChange = (token) => {
+    console.log(token);
+  };
+
   return (
     <div>
       <Head>
@@ -33,6 +38,10 @@ export default function Home({ results }) {
       <Header />
       <Nav />
       <Results results={results} />
+      <ReCAPTCHA
+        sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+        onChange={onCaptchaChange}
+      />
     </div>
   );
 }
